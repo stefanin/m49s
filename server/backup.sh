@@ -1,0 +1,1 @@
+mysqldump -R -q -pm49sql --single-transaction --quick --lock-tables=false m49 | gzip > /backup/m49$(date +%F).gz
