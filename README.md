@@ -15,12 +15,10 @@ docker run -d --network m49 -p 8089:80 --name phpmyadmin -e PMA_HOST=m49sql phpm
 
 docker run -d --network m49 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=m49sql --name m49sql mariadb
 
-docker cp .\server\ m49sql:/
+docker cp .\server\ m49sql:/ or docker cp server/ m49sql:/
 
 docker exec -it m49sql bash /server/serverconfig.sh
 
-docker stop m49sql
-
-docker start m49sql
+docker restart m49sql
 
 docker exec -it m49sql bash /server/createDB.sh
